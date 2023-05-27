@@ -3,7 +3,6 @@ import { useContext } from 'react'
 import { AppContext } from './context';
 import ThankYouMessage from './ThankYouMessage';
 
-
 function PollDisplay() {
   const {question,java,python, javascript, c} =useContext(AppContext);
   const {dispatch}=useContext(AppContext)
