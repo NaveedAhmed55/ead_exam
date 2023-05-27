@@ -1,10 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useContext } from 'react'
 import { AppContext } from './context';
+import ThankYouMessage from './ThankYouMessage';
+
 
 function PollDisplay() {
   const {question,java,python, javascript, c} =useContext(AppContext);
   const {dispatch}=useContext(AppContext)
+  const [displayMessage, setdisplayMessage]= useState(false)
+
   const change=(event)=>{
     dispatch({
         type:event.target.value,
@@ -14,6 +18,7 @@ function PollDisplay() {
   const handleSubmit=(event)=>
   {
      change(event)
+     setdisplayMessage(!displayMessage)
   }
   return (
     <div>  
@@ -33,6 +38,7 @@ function PollDisplay() {
       <h3>python: {python} votes</h3>
       <h3>java: {java} votes</h3>
       <h3>c#: {c} votes</h3>
+      {displayMessage && <ThankYouMessage />}
     </div>
   )
 }

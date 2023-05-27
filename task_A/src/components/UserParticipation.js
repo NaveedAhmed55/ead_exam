@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import ThankYouMessage from './ThankYouMessage';
 import AnotherUserParticipation from './AnotherUserParticipation';
-import { useContext } from 'react';
-import { AppContext } from './context';
+import PollDisplay from './PollDisplay';
 function UseerParticipation() {
-  const [displayMessage, setdisplayMessage]= useState(false)
+  const [displayPoll, setDisplayPoll]= useState(false);
+  const displayPollF=()=>{
+    setDisplayPoll(!displayPoll)
+  }
   return (
     <div>
-      {displayMessage && <ThankYouMessage />}
+      <button onClick={displayPollF}>Vote</button>
+      {displayPoll && <PollDisplay/>}
     </div>
   )
 }
