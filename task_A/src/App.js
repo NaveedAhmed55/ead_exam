@@ -1,7 +1,15 @@
+import AnotherUserParticipation from "./components/AnotherUserParticipation";
+import PollDisplay from "./components/PollDisplay";
+import UserParticipation from "./components/UserParticipation";
+import { AppProvider } from "./components/context";
 function App() {
   return (
     <div>
-        <h1>Hello, World.</h1>
+        <AppProvider>
+           <UserParticipation/>
+           <PollDisplay/>
+           <AnotherUserParticipation/>
+        </AppProvider>
     </div>
   );
 }
