@@ -27,6 +27,7 @@ const AppReducer=(state,action)=>{
 }
 
 const initialState={
+    question:"What is your favorite programming language?",
     javascript:0,
     python:0,
     java:0,
@@ -38,6 +39,7 @@ export const AppProvider=(props)=>{
     const [state,dispatch]=useReducer(AppReducer,initialState)
     return(
         <AppContext.Provider value={{
+        question:state.question,
         javascript:state.javascript,
         python:state.python,
         java:state.java,
